@@ -75,8 +75,8 @@ if not config.CHROMA_PERSIST_DIR.exists() or not any(config.CHROMA_PERSIST_DIR.i
 try:
     with st.spinner("Getting things ready..."):
         rag = load_pipeline()
-except Exception:
-    st.error("Something went wrong while starting the assistant. Please try again shortly.")
+except Exception as e:
+    st.error(f"Something went wrong while starting the assistant.\n\nDetails: {e}")
     st.stop()
 
 # ---------------------------------------------------------------------------
